@@ -32,16 +32,22 @@
         border-radius: 10px;
     }
 
-    .buy-btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 8px 14px;
-        background: #ff9900;
-        color: #000;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+     .buy-btn {
+    display: inline-block;
+    background: #ff4747;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;      /* bigger padding */
+    font-size: 16px;         /* readable font */
+    border-radius: 8px;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #e63b3b;     /* slightly darker on hover */
+    transform: scale(1.05);  /* subtle zoom effect */
+}
 </style>
 </head>
 <body>
@@ -65,3 +71,4 @@
 
 </body>
 </html>
+
