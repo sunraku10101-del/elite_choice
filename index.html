@@ -7,50 +7,115 @@
 <style>
   /* GENERAL STYLING */
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-  body { background: #f7f7f7; color: #333; }
+  body { background: #0d0d0d; color: #fff; }
 
   /* NAVBAR */
-  header { background: #111; color: #fff; padding: 15px 30px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-  header a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
-  header a:hover { color: #ffb400; }
+  header {
+    background: #111;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .logo { font-weight: bold; font-size: 24px; }
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+  header nav a:hover { color: #ffb400; }
 
   /* HERO SECTION */
-  .hero { display: flex; justify-content: space-between; align-items: center; padding: 60px 30px; background: url('images/hero-bg.jpg') center/cover no-repeat; color: #fff; }
-  .hero-text { max-width: 50%; }
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 30px;
+    background: url('images/hero-bg.jpg') center/cover no-repeat;
+    border-bottom: 2px solid #222;
+  }
+  .hero-text {
+    max-width: 50%;
+  }
   .hero-text h1 { font-size: 48px; margin-bottom: 20px; }
   .hero-text p { font-size: 20px; margin-bottom: 30px; }
-  .hero-text .btn { background: #ffb400; color: #111; padding: 15px 25px; text-decoration: none; font-weight: bold; margin-right: 15px; border-radius: 5px; }
+  .hero-text .btn {
+    background: #ffb400;
+    color: #111;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 15px;
+    transition: 0.3s;
+  }
   .hero-text .btn:hover { background: #e6a500; }
 
   /* PRODUCTS SECTION */
   .products { padding: 50px 30px; }
   .products h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
-  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-  .product-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+  .product-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+  }
   .product-card:hover { transform: translateY(-5px); }
   .product-card img { width: 100%; height: 250px; object-fit: cover; }
   .product-card .info { padding: 15px; text-align: center; }
   .product-card .info h3 { font-size: 20px; margin-bottom: 10px; }
   .product-card .info p { font-size: 18px; color: #ff6600; margin-bottom: 15px; font-weight: bold; }
-  .product-card .info a { text-decoration: none; background: #ffb400; color: #111; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+  .product-card .info a {
+    text-decoration: none;
+    background: #ffb400;
+    color: #111;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
   .product-card .info a:hover { background: #e6a500; }
 
   /* TRUST SECTION */
-  .trust { background: #111; color: #fff; text-align: center; padding: 50px 30px; }
+  .trust {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 50px 30px;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
+  }
   .trust h2 { font-size: 36px; margin-bottom: 30px; }
-  .trust p { font-size: 20px; max-width: 700px; margin: 0 auto 20px; }
+  .trust p { font-size: 20px; max-width: 700px; margin: 10px auto; }
 
   /* FOOTER */
-  footer { background: #222; color: #ccc; padding: 40px 30px; text-align: center; }
+  footer {
+    background: #111;
+    color: #ccc;
+    padding: 40px 30px;
+    text-align: center;
+  }
   footer a { color: #ffb400; text-decoration: none; margin: 0 10px; }
   footer a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
+  @media(max-width: 900px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-text { max-width: 100%; margin-bottom: 20px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <header>
-  <div class="logo"><a href="#">Elite Choice</a></div>
+  <div class="logo">Elite Choice</div>
   <nav>
     <a href="#fashion">Fashion</a>
     <a href="#beauty">Beauty</a>
@@ -61,7 +126,7 @@
 <!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Discover Top Fashion & Beauty Products</h1>
+    <h1>Elite Fashion & Beauty</h1>
     <p>Curated products to make you look stylish and feel confident.</p>
     <a href="#products" class="btn">Shop Now</a>
     <a href="#categories" class="btn">Explore Categories</a>
@@ -75,9 +140,8 @@
 <section class="products" id="products">
   <h2>Trending Products</h2>
   <div class="product-grid">
-    <!-- Product Card Example -->
     <div class="product-card">
-      <img src="images/product1.jpg" alt="Product 1">
+      <img src="images/product1.jpg" alt="Stylish Dress">
       <div class="info">
         <h3>Stylish Dress</h3>
         <p>₹999</p>
@@ -85,20 +149,20 @@
       </div>
     </div>
     <div class="product-card">
-      <img src="images/product2.jpg" alt="Product 2">
+      <img src="images/product2.jpg" alt="Luxury Skincare">
       <div class="info">
         <h3>Luxury Skincare</h3>
         <p>₹499</p>
         <a href="#">Buy Now</a>
       </div>
     </div>
-    <!-- Add more product cards -->
+    <!-- Add more product cards here -->
   </div>
 </section>
 
 <!-- TRUST SECTION -->
 <section class="trust">
-  <h2>Why Shop With Elite Choice?</h2>
+  <h2>Why Shop With Us?</h2>
   <p>✅ Curated products from trusted brands</p>
   <p>✅ Fast & secure delivery</p>
   <p>✅ Easy returns and 24/7 support</p>
