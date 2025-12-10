@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elite Choice | Beauty & Skincare</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/favicon.ico">
+  <style>
+    /* small page-specific tweaks */
+    .store-section { padding: 40px 20px; }
+    .store-section h2 { text-align:center; margin-bottom:25px; font-size:32px; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      padding: 0 24px;
+      align-items: start;
+    }
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .product-title { font-size: 16px; line-height:1.2; margin-bottom:8px; font-weight:600; color: #eee; }
+    .product-price { color: #00e6b8; font-size: 16px; margin-bottom:10px; }
+    .buy-btn { padding:10px 18px; border-radius:8px; text-decoration:none; color:white; display:inline-block; }
+    /* ensure buy buttons match store feel */
+    .buy-btn.primary { background: #ff9900; }
+    .buy-btn.primary:hover { background:#e68a00; }
+  </style>
 </head>
 <body>
+
   <header>ELITE CHOICE</header>
+
   <nav class="navbar">
     <div class="logo">ELITE CHOICE</div>
     <button class="menu-toggle">☰</button>
     <ul class="menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="store.html">Store</a></li>
-      <li><a href="beauty.html">Beauty</a></li>
+      <li><a href="beauty.html" class="active">Beauty</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -25,20 +52,63 @@
   <main>
     <section class="store-section">
       <h2>Beauty & Skincare Products</h2>
+
       <div class="product-grid">
-        <!-- Example product card -->
+
+        <!-- Product 1 -->
         <div class="product-card">
-          <img src="images/beauty1.jpg" alt="Beauty Product">
-          <div class="product-title">Product Name Here</div>
-          <div class="product-price">₹XXX</div>
-          <a href="#" target="_blank" class="buy-btn" style="background:#ff9900;">Buy Now</a>
+          <img src="images/beauty1.jpg" alt="Moisturizer product">
+          <div class="product-title">Olay Total Effects Day Cream – 20g</div>
+          <div class="product-price">₹347</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder1" target="_blank" rel="noopener">Buy Now</a>
         </div>
-        <!-- Add more product-cards similarly -->
-      </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="images/beauty2.jpg" alt="Brightening serum">
+          <div class="product-title">Cetaphil Bright Radiance Serum – 30ml</div>
+          <div class="product-price">₹1,609</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder2" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="images/beauty3.jpg" alt="Sunscreen product">
+          <div class="product-title">Neutrogena Sunscreen SPF 50 – 100ml</div>
+          <div class="product-price">₹599</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder3" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="images/beauty4.jpg" alt="Face wash">
+          <div class="product-title">Himalaya Gentle Face Wash – 150ml</div>
+          <div class="product-price">₹249</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder4" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <img src="images/beauty5.jpg" alt="Night cream">
+          <div class="product-title">L'Oréal Revitalift Night Cream – 50g</div>
+          <div class="product-price">₹899</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder5" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <img src="images/beauty6.jpg" alt="Face mask">
+          <div class="product-title">The Body Shop Clay Mask – 75ml</div>
+          <div class="product-price">₹499</div>
+          <a class="buy-btn primary" href="https://amzn.to/placeholder6" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+
+      </div> <!-- /.product-grid -->
     </section>
   </main>
 
   <footer>© 2025 Elite Choice. All rights reserved.</footer>
+
   <script src="js/script.js"></script>
 </body>
 </html>
