@@ -3,173 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Choice | Premium Store</title>
-
+<title>Elite Choice | Fashion & Beauty</title>
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0d0d0d;
-        color: white;
-    }
+  /* GENERAL STYLING */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body { background: #f7f7f7; color: #333; }
 
-    /* HEADER */
-    header {
-        background: #000;
-        padding: 20px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        border-bottom: 1px solid #333;
-        letter-spacing: 2px;
-    }
+  /* NAVBAR */
+  header { background: #111; color: #fff; padding: 15px 30px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+  header a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
+  header a:hover { color: #ffb400; }
 
-    /* NAVBAR */
-    .navbar {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        padding: 15px;
-        background: #111;
-        border-bottom: 1px solid #222;
-    }
+  /* HERO SECTION */
+  .hero { display: flex; justify-content: space-between; align-items: center; padding: 60px 30px; background: url('images/hero-bg.jpg') center/cover no-repeat; color: #fff; }
+  .hero-text { max-width: 50%; }
+  .hero-text h1 { font-size: 48px; margin-bottom: 20px; }
+  .hero-text p { font-size: 20px; margin-bottom: 30px; }
+  .hero-text .btn { background: #ffb400; color: #111; padding: 15px 25px; text-decoration: none; font-weight: bold; margin-right: 15px; border-radius: 5px; }
+  .hero-text .btn:hover { background: #e6a500; }
 
-    .navbar a {
-        color: white;
-        font-size: 18px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
+  /* PRODUCTS SECTION */
+  .products { padding: 50px 30px; }
+  .products h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+  .product-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .product-card:hover { transform: translateY(-5px); }
+  .product-card img { width: 100%; height: 250px; object-fit: cover; }
+  .product-card .info { padding: 15px; text-align: center; }
+  .product-card .info h3 { font-size: 20px; margin-bottom: 10px; }
+  .product-card .info p { font-size: 18px; color: #ff6600; margin-bottom: 15px; font-weight: bold; }
+  .product-card .info a { text-decoration: none; background: #ffb400; color: #111; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+  .product-card .info a:hover { background: #e6a500; }
 
-    .navbar a:hover {
-        color: #ff66c4;
-    }
+  /* TRUST SECTION */
+  .trust { background: #111; color: #fff; text-align: center; padding: 50px 30px; }
+  .trust h2 { font-size: 36px; margin-bottom: 30px; }
+  .trust p { font-size: 20px; max-width: 700px; margin: 0 auto 20px; }
 
-    /* HERO */
-    .hero {
-        text-align: center;
-        padding: 50px 20px;
-    }
-
-    .hero img {
-        width: 90%;
-        max-width: 1000px;
-        border-radius: 14px;
-        box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
-
-    .hero h1 {
-        font-size: 40px;
-        margin-top: 20px;
-    }
-
-    .hero p {
-        font-size: 18px;
-        color: #ccc;
-    }
-
-    /* CATEGORIES */
-    .categories {
-        padding: 30px 20px;
-    }
-
-    .categories h2 {
-        text-align: center;
-        font-size: 32px;
-        margin-bottom: 30px;
-    }
-
-    .cat-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-        padding: 0 30px;
-    }
-
-    .cat-card {
-        background: #1a1a1a;
-        padding: 20px;
-        border-radius: 14px;
-        text-align: center;
-        border: 1px solid #333;
-        transition: 0.3s;
-    }
-
-    .cat-card:hover {
-        transform: scale(1.05);
-        background: #262626;
-    }
-
-    .cat-card img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #444;
-    }
-
-    .cat-card p {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    footer {
-        text-align: center;
-        background: #000;
-        padding: 25px;
-        margin-top: 40px;
-        font-size: 14px;
-        color: #777;
-    }
+  /* FOOTER */
+  footer { background: #222; color: #ccc; padding: 40px 30px; text-align: center; }
+  footer a { color: #ffb400; text-decoration: none; margin: 0 10px; }
+  footer a:hover { text-decoration: underline; }
 </style>
-
 </head>
 <body>
 
-<header>ELITE CHOICE</header>
+<!-- NAVBAR -->
+<header>
+  <div class="logo"><a href="#">Elite Choice</a></div>
+  <nav>
+    <a href="#fashion">Fashion</a>
+    <a href="#beauty">Beauty</a>
+    <a href="#home">Home</a>
+  </nav>
+</header>
 
-<!-- NAV -->
-<nav class="navbar">
-    <a href="index.html" style="color:#ff66c4;">Home</a>
-    <a href="store.html">Store</a>
-    <a href="fashion.html">Fashion</a>
-    <a href="beauty.html">Beauty</a>
-    <a href="about.html">About</a>
-</nav>
-
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
-    <img src="images/home-banner.png" alt="Elite Choice Banner">
-    <h1>Premium Products. Trusted Choices.</h1>
-    <p>Explore the latest trends in fashion and beauty, handpicked for you.</p>
+  <div class="hero-text">
+    <h1>Discover Top Fashion & Beauty Products</h1>
+    <p>Curated products to make you look stylish and feel confident.</p>
+    <a href="#products" class="btn">Shop Now</a>
+    <a href="#categories" class="btn">Explore Categories</a>
+  </div>
+  <div class="hero-image">
+    <img src="images/hero-product.png" alt="Hero Product" style="max-width: 400px;">
+  </div>
 </section>
 
-<!-- CATEGORIES -->
-<section class="categories">
-    <h2>Shop by Category</h2>
-
-    <div class="cat-grid">
-
-        <a href="fashion.html" style="text-decoration:none; color:white;">
-            <div class="cat-card">
-                <img src="images/fashion.png" alt="Fashion">
-                <p>Fashion & Clothing</p>
-            </div>
-        </a>
-
-        <a href="beauty.html" style="text-decoration:none; color:white;">
-            <div class="cat-card">
-                <img src="images/beauty.png" alt="Beauty">
-                <p>Beauty & Skincare</p>
-            </div>
-        </a>
-
+<!-- PRODUCTS SECTION -->
+<section class="products" id="products">
+  <h2>Trending Products</h2>
+  <div class="product-grid">
+    <!-- Product Card Example -->
+    <div class="product-card">
+      <img src="images/product1.jpg" alt="Product 1">
+      <div class="info">
+        <h3>Stylish Dress</h3>
+        <p>₹999</p>
+        <a href="#">Buy Now</a>
+      </div>
     </div>
+    <div class="product-card">
+      <img src="images/product2.jpg" alt="Product 2">
+      <div class="info">
+        <h3>Luxury Skincare</h3>
+        <p>₹499</p>
+        <a href="#">Buy Now</a>
+      </div>
+    </div>
+    <!-- Add more product cards -->
+  </div>
 </section>
 
+<!-- TRUST SECTION -->
+<section class="trust">
+  <h2>Why Shop With Elite Choice?</h2>
+  <p>✅ Curated products from trusted brands</p>
+  <p>✅ Fast & secure delivery</p>
+  <p>✅ Easy returns and 24/7 support</p>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    © 2025 Elite Choice. All rights reserved.
+  <p>Follow Us:</p>
+  <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
+  <p>&copy; 2025 Elite Choice. All Rights Reserved.</p>
 </footer>
 
 </body>
