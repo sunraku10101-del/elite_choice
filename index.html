@@ -1,123 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elite Choice | Premium Store</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0d0d0d;
-    color: white;
-  }
-  header {
-    background: #000;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #333;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 16px;
-    opacity: 0.8;
-  }
-  nav a:hover {
-    opacity: 1;
-  }
-  .hero {
-    width: 100%;
-    height: 85vh;
-    background: url('images/home-banner.jpg') no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    padding-left: 60px;
-  }
-  .hero-text h2 {
-    font-size: 48px;
-    max-width: 500px;
-    font-weight: 700;
-  }
-  .hero-text p {
-    font-size: 18px;
-    opacity: 0.8;
-    max-width: 400px;
-  }
-  .hero-text button {
-    padding: 14px 28px;
-    font-size: 16px;
-    margin-top: 18px;
-    background: #ff0066;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .categories {
-    padding: 60px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-  }
-  .cat-card {
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid #222;
-  }
-  .cat-card img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  .cat-card h3 {
-    margin: 15px 0 5px;
-    font-size: 20px;
-  }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Choice | Premium Deals</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/favicon.ico">
 </head>
 <body>
-  <header>
-    <h1>Elite Choice</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="fashion.html">Fashion</a>
-      <a href="beauty.html">Beauty</a>
-      <a href="electronics.html">Electronics</a>
-    </nav>
-  </header>
+<header>ELITE CHOICE</header>
+<nav class="navbar">
+  <div class="logo">ELITE CHOICE</div>
+  <button class="menu-toggle">☰</button>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+</nav>
 
+<main>
   <section class="hero">
-    <div class="hero-text">
-      <h2>Premium Products Curated Just For You</h2>
-      <p>Shop the best Fashion, Beauty, Skincare & Electronics hand‑selected for quality and style.</p>
-      <button>Shop Now</button>
-    </div>
+    <h1>Premium Products. Trusted Choices.</h1>
+    <p>Your one-stop shop for Fashion & Beauty</p>
+    <img src="images/home-banner.png" alt="Elite Choice Banner">
   </section>
 
   <section class="categories">
-    <div class="cat-card">
-      <img src="images/fashion-banner.jpg" alt="Fashion" />
-      <h3>Fashion</h3>
-    </div>
-    <div class="cat-card">
-      <img src="images/beauty-banner.jpg" alt="Beauty" />
-      <h3>Beauty & Skincare</h3>
-    </div>
-    <div class="cat-card">
-      <img src="images/electronics-banner.jpg" alt="Electronics" />
-      <h3>Electronics</h3>
+    <h2 style="text-align:center;margin-bottom:25px;font-size:32px;">Shop by Category</h2>
+    <div class="cat-grid">
+      <a href="fashion.html" class="cat-item">Fashion & Clothing</a>
+      <a href="beauty.html" class="cat-item">Beauty & Skincare</a>
     </div>
   </section>
+</main>
+
+<footer>© 2025 Elite Choice. All rights reserved.</footer>
+<script src="js/script.js"></script>
 </body>
 </html>
