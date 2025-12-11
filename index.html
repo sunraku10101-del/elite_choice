@@ -3,41 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Choice | Premium Deals</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="images/favicon.ico">
+<title>Elite Choice | Home</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        font-family: Arial, sans-serif;
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    header h2 {
+        font-size: 20px;
+        margin-top: 5px;
+        font-weight: 400;
+        color: #ccc;
+    }
+
+    .product-card {
+        width: 90%;
+        max-width: 400px;
+        background: #1a1a1a;
+        padding: 20px;
+        margin: 30px auto;
+        border-radius: 18px;
+        text-align: center;
+    }
+
+    .product-card img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .price {
+        font-size: 24px;
+        margin: 15px 0;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .btn {
+        background: #ff9900;
+        border: none;
+        padding: 12px 28px;
+        font-size: 18px;
+        color: black;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+</style>
 </head>
+
 <body>
-<header>ELITE CHOICE</header>
-<nav class="navbar">
-  <div class="logo">ELITE CHOICE</div>
-  <button class="menu-toggle">☰</button>
-  <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="blog.html">Blog</a></li>
-  </ul>
-</nav>
 
-<main>
-  <section class="hero">
-    <h1>Premium Products. Trusted Choices.</h1>
-    <p>Your one-stop shop for Fashion & Beauty</p>
-    <img src="images/home-banner.png" alt="Elite Choice Banner">
-  </section>
+<header>
+    <h1>ELITE CHOICE</h1>
+    <h2>Beauty & Skincare</h2>
+</header>
 
-  <section class="categories">
-    <h2 style="text-align:center;margin-bottom:25px;font-size:32px;">Shop by Category</h2>
-    <div class="cat-grid">
-      <a href="fashion.html" class="cat-item">Fashion & Clothing</a>
-      <a href="beauty.html" class="cat-item">Beauty & Skincare</a>
-    </div>
-  </section>
-</main>
+<div class="product-card">
+    <img src="images/product1.jpg" alt="Olay Cream">
 
-<footer>© 2025 Elite Choice. All rights reserved.</footer>
-<script src="js/script.js"></script>
+    <p>
+        Olay Total Effects Day Cream | with Vitamin C, B5,  
+        Niacinamide, Green Tea | Fights 7 signs of ageing | 20 gm
+    </p>
+
+    <div class="price">₹347</div>
+
+    <a href="YOUR-AMAZON-LINK-HERE">
+        <button class="btn">BUY NOW</button>
+    </a>
+</div>
+
 </body>
 </html>
