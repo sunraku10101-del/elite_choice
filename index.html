@@ -1,96 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Choice | Home</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elite Choice | Premium Store</title>
 <style>
-    body {
-        margin: 0;
-        background: #000;
-        font-family: Arial, sans-serif;
-        color: white;
-    }
-
-    header {
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    header h1 {
-        font-size: 38px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    header h2 {
-        font-size: 20px;
-        margin-top: 5px;
-        font-weight: 400;
-        color: #ccc;
-    }
-
-    .product-card {
-        width: 90%;
-        max-width: 400px;
-        background: #1a1a1a;
-        padding: 20px;
-        margin: 30px auto;
-        border-radius: 18px;
-        text-align: center;
-    }
-
-    .product-card img {
-        width: 80%;
-        border-radius: 10px;
-    }
-
-    .price {
-        font-size: 24px;
-        margin: 15px 0;
-        color: #4CAF50;
-        font-weight: bold;
-    }
-
-    .btn {
-        background: #ff9900;
-        border: none;
-        padding: 12px 28px;
-        font-size: 18px;
-        color: black;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .btn:hover {
-        opacity: 0.8;
-    }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d0d0d;
+    color: white;
+  }
+  header {
+    background: #000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  nav a:hover {
+    opacity: 1;
+  }
+  .hero {
+    width: 100%;
+    height: 85vh;
+    background: url('images/home-banner.jpg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+  }
+  .hero-text h2 {
+    font-size: 48px;
+    max-width: 500px;
+    font-weight: 700;
+  }
+  .hero-text p {
+    font-size: 18px;
+    opacity: 0.8;
+    max-width: 400px;
+  }
+  .hero-text button {
+    padding: 14px 28px;
+    font-size: 16px;
+    margin-top: 18px;
+    background: #ff0066;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .categories {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  .cat-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #222;
+  }
+  .cat-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .cat-card h3 {
+    margin: 15px 0 5px;
+    font-size: 20px;
+  }
 </style>
 </head>
-
 <body>
+  <header>
+    <h1>Elite Choice</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="electronics.html">Electronics</a>
+    </nav>
+  </header>
 
-<header>
-    <h1>ELITE CHOICE</h1>
-    <h2>Beauty & Skincare</h2>
-</header>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Premium Products Curated Just For You</h2>
+      <p>Shop the best Fashion, Beauty, Skincare & Electronics hand‑selected for quality and style.</p>
+      <button>Shop Now</button>
+    </div>
+  </section>
 
-<div class="product-card">
-    <img src="images/product1.jpg" alt="Olay Cream">
-
-    <p>
-        Olay Total Effects Day Cream | with Vitamin C, B5,  
-        Niacinamide, Green Tea | Fights 7 signs of ageing | 20 gm
-    </p>
-
-    <div class="price">₹347</div>
-
-    <a href="YOUR-AMAZON-LINK-HERE">
-        <button class="btn">BUY NOW</button>
-    </a>
-</div>
-
+  <section class="categories">
+    <div class="cat-card">
+      <img src="images/fashion-banner.jpg" alt="Fashion" />
+      <h3>Fashion</h3>
+    </div>
+    <div class="cat-card">
+      <img src="images/beauty-banner.jpg" alt="Beauty" />
+      <h3>Beauty & Skincare</h3>
+    </div>
+    <div class="cat-card">
+      <img src="images/electronics-banner.jpg" alt="Electronics" />
+      <h3>Electronics</h3>
+    </div>
+  </section>
 </body>
 </html>
