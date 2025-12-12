@@ -5,10 +5,10 @@ import os
 
 # ==================== CONFIG ====================
 
-
-import os
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN").strip()
-
+# Get GitHub token from environment variable and strip whitespace/newlines
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
+if not GITHUB_TOKEN:
+    raise ValueError("GitHub token not found! Set GITHUB_TOKEN environment variable.")
 
 # Your GitHub repo
 GITHUB_REPO = "sunraku10101-del/elite_choice"
@@ -18,9 +18,6 @@ AFFILIATE_TAG = "elitechoic002-21"
 
 # Local temp folder to save HTML files before pushing
 LOCAL_FOLDER = "temp_pages"
-
-# Base URL for Amazon India
-AMAZON_BASE = "https://www.amazon.in"
 
 # ================================================
 
@@ -82,14 +79,14 @@ def update_category_page(category, product_html):
     """Update the category HTML page in the repo"""
     file_path = f"{category}.html"
 
-    # Try to get existing file content
     try:
         file = repo.get_contents(file_path)
         old_content = file.decoded_content.decode("utf-8")
-        new_content = old_content.replace("<!-- PRODUCTS HERE -->", product_html + "\n<!-- PRODUCTS HERE -->")
+        new_content = old_content.replace("<!-- PRODUCTS HERE -->",
+                                          product_html + "\n<!-- PRODUCTS HERE -->")
         repo.update_file(file_path, f"Add new product to {category}", new_content, file.sha)
         print(f"✅ Updated {category}.html on GitHub")
-    except:
+    except Exception as e:
         # If file does not exist, create new
         new_content = f"""
         <html>
@@ -110,7 +107,6 @@ def add_product(amazon_url, category):
     update_category_page(category, html)
 
 # ===================== RUN BOT =====================
-
 if __name__ == "__main__":
     print("=== Amazon Affiliate Bot Mode B ===")
     while True:
@@ -120,4 +116,3 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
-
