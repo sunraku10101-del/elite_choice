@@ -7,7 +7,8 @@ import os
 
 
 import os
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN").strip()
+
 
 # Your GitHub repo
 GITHUB_REPO = "sunraku10101-del/elite_choice"
@@ -119,3 +120,4 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
