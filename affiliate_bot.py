@@ -29,28 +29,34 @@ if not os.path.exists(LOCAL_FOLDER):
 g = Github(GITHUB_TOKEN)
 repo = g.get_repo(GITHUB_REPO)
 
+import json
+
 def scrape_amazon(url):
-    """Scrape product title, image, and price from Amazon page"""
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                       "(KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
     }
+
     r = requests.get(url, headers=headers)
     soup = BeautifulSoup(r.text, "html.parser")
 
-    # Title
+    # Product title
     title_tag = soup.find(id="productTitle")
-    title = title_tag.get_text(strip=True) if title_tag else "No Title Found"
+    title = title_tag.get_text(strip=True) if title_tag else "Amazon Product"
 
-    # Image
-    image_tag = soup.find(id="landingImage")
-    if not image_tag:
-        image_tag = soup.find("img", {"data-old-hires": True})
-    image_url = image_tag["src"] if image_tag else ""
+    # Product image (Amazon uses dynamic JSON)
+    image_url = ""
+    image_tag = soup.find("img", id="landingImage")
 
-    # Price
+    if image_tag and image_tag.get("data-a-dynamic-image"):
+        images = json.loads(image_tag["data-a-dynamic-image"])
+        image_url = list(images.keys())[0]
+    elif image_tag and image_tag.get("src"):
+        image_url = image_tag["src"]
+
+    # Product price
     price_tag = soup.find("span", class_="a-price-whole")
-    price = price_tag.get_text(strip=True) if price_tag else "Price Not Found"
+    price = price_tag.get_text(strip=True) if price_tag else "Check price"
 
     return title, image_url, price
 
@@ -116,3 +122,4 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
