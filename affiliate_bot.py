@@ -59,8 +59,11 @@ def scrape_amazon(url):
     price = price_tag.get_text(strip=True) if price_tag else "Check price"
 
     return title, image_url, price
+def generate_product_html(title, image_url, price, product_url, category):
 
-html = generate_product_html(title, image, price, amazon_url, category)
+    # FIX #2 → fallback image
+    if not image_url:
+        image_url = "images/no-image.png"
 
     affiliate_url = product_url
     if "tag=" not in affiliate_url:
@@ -93,9 +96,10 @@ html = generate_product_html(title, image, price, amazon_url, category)
         """
 
     else:
-        html = f"<p>Unsupported category</p>"
+        html = "<p>Unsupported category</p>"
 
     return html
+
 
 
 
@@ -140,6 +144,7 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
 
 
 
