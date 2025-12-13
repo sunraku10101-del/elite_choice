@@ -60,7 +60,7 @@ def scrape_amazon(url):
 
     return title, image_url, price
 
-def generate_product_html(title, image_url, price, product_url):
+def generate_product_html(title, image_url, price, product_url, category):
     affiliate_url = product_url
     if "tag=" not in affiliate_url:
         if "?" in affiliate_url:
@@ -68,15 +68,34 @@ def generate_product_html(title, image_url, price, product_url):
         else:
             affiliate_url += f"?tag={AFFILIATE_TAG}"
 
-    html = f"""
-    <div class="card">
-        <img src="{image_url}" alt="{title}">
-        <h3>{title}</h3>
-        <div class="price">₹{price}</div>
-        <a class="btn" href="{affiliate_url}" target="_blank">Buy Now</a>
-    </div>
-    """
+    # Beauty layout
+    if category == "beauty":
+        html = f"""
+        <div class="card">
+            <img src="{image_url}" alt="{title}">
+            <h3>{title}</h3>
+            <div class="price">₹{price}</div>
+            <a class="btn" href="{affiliate_url}" target="_blank">Buy Now</a>
+        </div>
+        """
+
+    # Fashion layout
+    elif category == "fashion":
+        html = f"""
+        <div class="product">
+            <img src="{image_url}" alt="{title}">
+            <h3>{title}</h3>
+            <p>Trending fashion pick</p>
+            <div class="product-price">₹{price}</div>
+            <a href="{affiliate_url}" target="_blank" class="buy-btn">Buy Now</a>
+        </div>
+        """
+
+    else:
+        html = f"<p>Unsupported category</p>"
+
     return html
+
 
 
 def update_category_page(category, product_html):
@@ -120,5 +139,6 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
 
 
