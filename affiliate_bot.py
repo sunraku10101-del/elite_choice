@@ -60,7 +60,8 @@ def scrape_amazon(url):
 
     return title, image_url, price
 
-def generate_product_html(title, image_url, price, product_url, category):
+html = generate_product_html(title, image, price, amazon_url, category)
+
     affiliate_url = product_url
     if "tag=" not in affiliate_url:
         if "?" in affiliate_url:
@@ -139,6 +140,7 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
 
 
 
