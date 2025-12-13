@@ -61,7 +61,6 @@ def scrape_amazon(url):
     return title, image_url, price
 
 def generate_product_html(title, image_url, price, product_url):
-    """Generate HTML snippet for the product card"""
     affiliate_url = product_url
     if "tag=" not in affiliate_url:
         if "?" in affiliate_url:
@@ -70,16 +69,15 @@ def generate_product_html(title, image_url, price, product_url):
             affiliate_url += f"?tag={AFFILIATE_TAG}"
 
     html = f"""
-    <div class="product-card">
-        <a href="{affiliate_url}" target="_blank">
-            <img src="{image_url}" alt="{title}" />
-        </a>
+    <div class="card">
+        <img src="{image_url}" alt="{title}">
         <h3>{title}</h3>
-        <p>Price: ₹{price}</p>
-        <a class="buy-btn" href="{affiliate_url}" target="_blank">Buy Now</a>
+        <div class="price">₹{price}</div>
+        <a class="btn" href="{affiliate_url}" target="_blank">Buy Now</a>
     </div>
     """
     return html
+
 
 def update_category_page(category, product_html):
     """Update the category HTML page in the repo"""
@@ -122,4 +120,5 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
 
