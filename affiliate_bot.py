@@ -131,7 +131,8 @@ def update_category_page(category, product_html):
 
 def add_product(amazon_url, category):
     title, image, price = scrape_amazon(amazon_url)
-    html = generate_product_html(title, image, price, amazon_url)
+    html = generate_product_html(title, image, price, amazon_url, category)
+
     update_category_page(category, html)
 
 # ===================== RUN BOT =====================
@@ -144,6 +145,7 @@ if __name__ == "__main__":
         category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
         add_product(url, category)
         print("✅ Product added successfully!\n")
+
 
 
 
