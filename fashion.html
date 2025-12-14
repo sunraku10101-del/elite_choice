@@ -116,11 +116,16 @@
 .product,
 .product-card {
     width: 280px;
-    min-height: 460px;
+    min-height: auto;   /* remove fixed min-height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* start content from top */
 }
+
+.product .product-price {
+    margin: 8px 0 10px 0;  /* uniform spacing */
+}
+
 .product img,
 .product-card img {
     height: 260px;
@@ -216,8 +221,6 @@
 </div>  
  <div class="product">
    <img src="images/cargo.png" alt="product banner">
-
-    <div class="product-title">
     <h3> GRECIILOOKS Cargo Jeans for Women – Wide Leg High Waist Baggy Denim Pants</h3>
         <p>Casual Fit Trousers with Utility Pocket Design.</p>
     <div class="product-price">  ₹649 </div>
@@ -228,8 +231,6 @@
 </div> 
       <div class="product">
    <img src="images/denim.png" alt="product banner">
-
-    <div class="product-title">
      <h3> GRECIILOOKS Cargo Jeans for Women – Wide Leg High Waist Baggy Denim Pants</h3> 
 <p>Casual Fit Trousers with Utility Pocket Desig.</p>
     <div class="product-price">  ₹500 </div>
@@ -252,6 +253,7 @@
 
 </body>
 </html>
+
 
 
 
