@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Elite Choice Beauty</title>
+    <link>https://sunraku10101-del.github.io/elite_choice/</link>
+    <item>
+      <title>Kerala Luxury Skincare</title>
+      <link>https://sunraku10101-del.github.io/elite_choice/beauty.html</link>
+      <media:content url="https://sunraku10101-del.github.io/elite_choice/images/home-banner.png" medium="image" />
+    </item>
+  </channel>
+</rss>
