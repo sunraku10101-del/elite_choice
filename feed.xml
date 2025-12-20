@@ -1,15 +1,25 @@
-<item>
-  <title>Elite Choice: 2025 Luxury Streetwear Trends</title>
-  <link>https://sunraku10101-del.github.io/elite_choice/fashion.html</link>
-  <description>Upgrade your wardrobe with our premium 2025 fashion collection in Kerala. Quality meets style.</description>
-  <pubDate>Sun, 21 Dec 2025 10:00:00 GMT</pubDate>
-  <media:content url="https://sunraku10101-del.github.io/elite_choice/images/fashion-sample.png" medium="image" />
-</item>
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Elite Choice - Premium Fashion &amp; Beauty Kerala</title>
+    <link>https://sunraku10101-del.github.io/elite_choice/</link>
+    <description>Premium fashion and beauty deals curated for you in Kerala.</description>
+    
+    <item>
+      <title>Elite Choice: 2025 Luxury Streetwear Trends</title>
+      <link>https://sunraku10101-del.github.io/elite_choice/fashion.html</link>
+      <description>Upgrade your wardrobe with our premium 2025 fashion collection in Kerala. Quality meets style.</description>
+      <pubDate>Sun, 21 Dec 2025 10:00:00 GMT</pubDate>
+      <media:content url="https://sunraku10101-del.github.io/elite_choice/images/home-banner.png" medium="image" />
+    </item>
 
-<item>
-  <title>Elite Choice: Daily Glow Skincare Routine</title>
-  <link>https://sunraku10101-del.github.io/elite_choice/beauty.html</link>
-  <description>Discover the best beauty and skincare essentials for 2025. Shop premium beauty in Kerala.</description>
-  <pubDate>Mon, 22 Dec 2025 10:00:00 GMT</pubDate>
-  <media:content url="https://sunraku10101-del.github.io/elite_choice/images/beauty-sample.png" medium="image" />
-</item>
+    <item>
+      <title>Elite Choice: Daily Glow Skincare Routine</title>
+      <link>https://sunraku10101-del.github.io/elite_choice/beauty.html</link>
+      <description>Discover the best beauty and skincare essentials for 2025. Shop premium beauty in Kerala.</description>
+      <pubDate>Mon, 22 Dec 2025 10:00:00 GMT</pubDate>
+      <media:content url="https://sunraku10101-del.github.io/elite_choice/images/home-banner.png" medium="image" />
+    </item>
+
+  </channel>
+</rss>
