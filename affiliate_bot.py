@@ -48,13 +48,14 @@ def update_rss_feed(category, title, image_url):
             print(f"⚠️ XML ERROR: Could not find </channel> in {file_path}")
     except Exception as e:
         print(f"❌ GITHUB ERROR: {e}")
-
 def update_category_page(category, product_html):
     file_path = f"{category}.html"
     try:
         file = repo.get_contents(file_path)
         content = file.decoded_content.decode("utf-8")
-        placeholder = ""
+        
+        # This matches the "marker" you put in your HTML files
+        placeholder = "product here"
         if placeholder in content:
             new_content = content.replace(placeholder, product_html + "\n" + placeholder)
             repo.update_file(file_path, f"Bot: Add to {category}", new_content, file.sha)
@@ -85,3 +86,4 @@ if __name__ == "__main__":
         if u == "exit": break
         c = input("Category: ")
         add_product(u, c)
+
