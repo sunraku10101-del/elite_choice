@@ -15,13 +15,11 @@
     --muted:#bdbdbd;
 }
 
-*{
-    box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
 
 body{
     margin:0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family:'Segoe UI', Arial, sans-serif;
     background:var(--bg);
     color:var(--text);
 }
@@ -29,70 +27,70 @@ body{
 /* ===== HEADER ===== */
 .header{
     text-align:center;
-    padding:25px 15px;
+    padding:22px 14px;
     background:linear-gradient(180deg,#000,#0b0b0b);
     border-bottom:1px solid #222;
 }
 
 .header h1{
     margin:0;
-    font-size:26px;
-    letter-spacing:1px;
+    font-size:24px;
+    letter-spacing:0.5px;
 }
 
 .header p{
-    margin-top:8px;
+    margin-top:6px;
     color:var(--muted);
-    font-size:14px;
+    font-size:13px;
 }
 
-/* ===== PRODUCT GRID ===== */
+/* ===== GRID ===== */
 .container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-    padding:30px;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:16px;
+    padding:18px;
 }
 
 /* ===== CARD ===== */
 .card{
     background:var(--card);
-    border-radius:16px;
-    padding:16px;
+    border-radius:14px;
+    padding:14px;
     text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.6);
-    transition:transform .35s, box-shadow .35s;
+    box-shadow:0 10px 26px rgba(0,0,0,.6);
+    transition:transform .3s, box-shadow .3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.8);
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px rgba(0,0,0,.8);
 }
 
 /* ===== IMAGE ===== */
 .card img{
     width:100%;
-    height:230px;
+    height:190px;
     object-fit:contain;
     background:#fff;
-    border-radius:12px;
-    padding:10px;
+    border-radius:10px;
+    padding:8px;
 }
 
 /* ===== TITLE ===== */
 .card h3{
-    font-size:14px;
+    font-size:13px;
     line-height:1.4;
-    margin:12px 0 6px;
-    min-height:40px;
+    margin:10px 0 6px;
+    min-height:36px;
 }
 
 /* ===== PRICE ===== */
 .price{
-    font-size:16px;
+    font-size:15px;
     font-weight:700;
     color:#f5c542;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 /* ===== BUY BUTTON ===== */
@@ -104,179 +102,40 @@ body{
     background:linear-gradient(135deg,var(--accent),var(--accent2));
     color:#fff;
     text-decoration:none;
-    padding:12px;
-    border-radius:30px;
+    padding:11px;
+    border-radius:28px;
     font-weight:700;
-    font-size:14px;
-    box-shadow:0 6px 18px rgba(255,153,0,0.35);
+    font-size:13px;
+    box-shadow:0 6px 16px rgba(255,153,0,.4);
     transition:transform .25s, box-shadow .25s;
 }
 
 .btn:hover{
-    transform:scale(1.07);
-    box-shadow:0 10px 28px rgba(255,153,0,0.6);
+    transform:scale(1.06);
+    box-shadow:0 10px 26px rgba(255,153,0,.65);
 }
 
-/* ===== TRUST TEXT ===== */
+/* ===== TRUST ===== */
 .trust{
     font-size:11px;
     color:#aaa;
-    margin-top:6px;
+    margin-top:5px;
 }
 
 /* ===== FOOTER ===== */
 .footer{
     text-align:center;
-    padding:20px;
+    padding:18px;
     font-size:12px;
     color:#777;
     border-top:1px solid #222;
 }
-</style>
-</head>
 
-<body>
-
-<!-- HEADER -->
-<div class="header">
-    <h1>Beauty & Skincare Picks</h1>
-    <p>Premium products • Trusted brands • Best Amazon deals</p>
-</div>
-
-<!-- PRODUCTS -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Beauty & Skincare | Elite Choice</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-:root{
-    --bg:#0b0b0b;
-    --card:#171717;
-    --accent:#ff9900;
-    --accent2:#ff5f00;
-    --text:#ffffff;
-    --muted:#bdbdbd;
-}
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-}
-
-/* ===== HEADER ===== */
-.header{
-    text-align:center;
-    padding:25px 15px;
-    background:linear-gradient(180deg,#000,#0b0b0b);
-    border-bottom:1px solid #222;
-}
-
-.header h1{
-    margin:0;
-    font-size:26px;
-    letter-spacing:1px;
-}
-
-.header p{
-    margin-top:8px;
-    color:var(--muted);
-    font-size:14px;
-}
-
-/* ===== PRODUCT GRID ===== */
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-    padding:30px;
-}
-
-/* ===== CARD ===== */
-.card{
-    background:var(--card);
-    border-radius:16px;
-    padding:16px;
-    text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.6);
-    transition:transform .35s, box-shadow .35s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.8);
-}
-
-/* ===== IMAGE ===== */
-.card img{
-    width:100%;
-    height:230px;
-    object-fit:contain;
-    background:#fff;
-    border-radius:12px;
-    padding:10px;
-}
-
-/* ===== TITLE ===== */
-.card h3{
-    font-size:14px;
-    line-height:1.4;
-    margin:12px 0 6px;
-    min-height:40px;
-}
-
-/* ===== PRICE ===== */
-.price{
-    font-size:16px;
-    font-weight:700;
-    color:#f5c542;
-    margin-bottom:10px;
-}
-
-/* ===== BUY BUTTON ===== */
-.btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
-    color:#fff;
-    text-decoration:none;
-    padding:12px;
-    border-radius:30px;
-    font-weight:700;
-    font-size:14px;
-    box-shadow:0 6px 18px rgba(255,153,0,0.35);
-    transition:transform .25s, box-shadow .25s;
-}
-
-.btn:hover{
-    transform:scale(1.07);
-    box-shadow:0 10px 28px rgba(255,153,0,0.6);
-}
-
-/* ===== TRUST TEXT ===== */
-.trust{
-    font-size:11px;
-    color:#aaa;
-    margin-top:6px;
-}
-
-/* ===== FOOTER ===== */
-.footer{
-    text-align:center;
-    padding:20px;
-    font-size:12px;
-    color:#777;
-    border-top:1px solid #222;
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width:480px){
+    .header h1{ font-size:21px; }
+    .container{ padding:14px; gap:14px; }
+    .card img{ height:170px; }
 }
 </style>
 </head>
@@ -291,63 +150,7 @@ body{
 
 <!-- PRODUCTS -->
 <div class="container">
-<!-- BOT_INSERT -->
-
-<!-- PRODUCT 1 -->
-<div class="card">
-    <img src="images/lakme-powder.jpg" alt="Lakme 9 to 5 Matte Powder">
-    <h3>Lakme 9 to 5 Matte Pressed Powder</h3>
-    <div class="price">Check Latest Price</div>
-    <a class="btn" href="https://www.amazon.in/dp/B0DVM339GW?tag=elitechoic002-21" target="_blank">
-        🛒 Buy on Amazon
-    </a>
-    <div class="trust">✔ Verified Amazon Seller</div>
-</div>
-
-<!-- PRODUCT 2 -->
-<div class="card">
-    <img src="images/lakme-powder.jpg" alt="Lakme Matte Compact">
-    <h3>Lakme Perfect Radiance Compact</h3>
-    <div class="price">Check Latest Price</div>
-    <a class="btn" href="https://www.amazon.in/dp/B0DVM339GW?tag=elitechoic002-21" target="_blank">
-        🛒 Buy on Amazon
-    </a>
-    <div class="trust">✔ Fast Delivery Available</div>
-</div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-    © 2025 Elite Choice • Amazon Affiliate Partner
-</div>
-
-</body>
-</html>
-
-
-<!-- PRODUCT 1 -->
-<div class="card">
-    <img src="images/lakme-powder.jpg" alt="Lakme 9 to 5 Matte Powder">
-    <h3>Lakme 9 to 5 Matte Pressed Powder</h3>
-    <div class="price">Check Latest Price</div>
-    <a class="btn" href="https://www.amazon.in/dp/B0DVM339GW?tag=elitechoic002-21" target="_blank">
-        🛒 Buy on Amazon
-    </a>
-    <div class="trust">✔ Verified Amazon Seller</div>
-</div>
-
-<!-- PRODUCT 2 -->
-<div class="card">
-    <img src="images/lakme-powder.jpg" alt="Lakme Matte Compact">
-    <h3>Lakme Perfect Radiance Compact</h3>
-    <div class="price">Check Latest Price</div>
-    <a class="btn" href="https://www.amazon.in/dp/B0DVM339GW?tag=elitechoic002-21" target="_blank">
-        🛒 Buy on Amazon
-    </a>
-    <div class="trust">✔ Fast Delivery Available</div>
-</div>
-
+    <!-- BOT_INSERT -->
 </div>
 
 <!-- FOOTER -->
