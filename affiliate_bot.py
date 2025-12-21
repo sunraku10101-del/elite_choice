@@ -43,6 +43,7 @@ def scrape_amazon(url):
     return title, image_url, price
 
 def update_rss_feed(category, title, image_url):
+    """Adds product to XML for Pinterest"""
     file_path = f"{category}.xml"
     now = datetime.datetime.now()
     rss_date = now.strftime("%a, %d %b %Y %H:%M:%S +0000")
@@ -67,13 +68,13 @@ def update_rss_feed(category, title, image_url):
         print(f"⚠️ Could not update {file_path}: {e}")
 
 def update_category_page(category, product_html):
+    """Adds product to HTML website"""
     file_path = f"{category}.html"
     try:
         file = repo.get_contents(file_path)
         old_content = file.decoded_content.decode("utf-8")
-        
-        # FIXED: Marker added below
-      placeholder = ""
+      # CORRECTED: The marker is now ACTUALLY filled in!
+      placeholder = "marker"
         if placeholder in old_content:
             new_content = old_content.replace(placeholder, product_html + "\n" + placeholder)
             repo.update_file(file_path, f"Bot: Add product to {category}", new_content, file.sha)
@@ -99,8 +100,10 @@ def add_product(amazon_url, category):
             <a class="btn" href="{clean_url}?tag={AFFILIATE_TAG}" target="_blank">Buy Now</a>
         </div>
     """
+    # This runs the Website update
     update_category_page(category, product_html)
     
+    # This runs the Pinterest update
     if category in ["fashion", "beauty"]:
         update_rss_feed(category, title, image)
 
