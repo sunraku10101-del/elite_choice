@@ -51,16 +51,28 @@ def update_rss_feed(category, title, image_url):
 
 def update_category_page(category, product_html):
     file_path = f"{category}.html"
+    anchor = "<!-- BOT_INSERT -->"
+
     try:
         file = repo.get_contents(file_path)
         content = file.decoded_content.decode("utf-8")
-        placeholder = ""
-        if placeholder in content:
-            new_content = content.replace(placeholder, product_html + "\n" + placeholder)
-            repo.update_file(file_path, f"Bot: Add to {category}", new_content, file.sha)
-            print(f"✅ SUCCESS: {category}.html updated")
+
+        if anchor not in content:
+            print("❌ BOT_INSERT anchor not found in HTML")
+            return
+
+        new_content = content.replace(anchor, product_html + "\n" + anchor)
+        repo.update_file(
+            file_path,
+            f"Bot: Add product to {category}",
+            new_content,
+            file.sha
+        )
+        print(f"✅ SUCCESS: {category}.html updated")
+
     except Exception as e:
         print(f"❌ HTML ERROR: {e}")
+
 
 def add_product(amazon_url, category):
     clean_url = amazon_url.split("?")[0]
@@ -86,4 +98,5 @@ if __name__ == "__main__":
         c = input("Category: ")
 
         add_product(u, c)
+
 
