@@ -54,7 +54,7 @@ def update_category_page(category, product_html):
     try:
         file = repo.get_contents(file_path)
         content = file.decoded_content.decode("utf-8")
-        placeholder = "product here"
+        placeholder = ""
         if placeholder in content:
             new_content = content.replace(placeholder, product_html + "\n" + placeholder)
             repo.update_file(file_path, f"Bot: Add to {category}", new_content, file.sha)
@@ -86,3 +86,4 @@ if __name__ == "__main__":
         c = input("Category: ")
 
         add_product(u, c)
+
