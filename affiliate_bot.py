@@ -100,19 +100,12 @@ def add_product(amazon_url, category):
             <a class="btn" href="{clean_url}?tag={AFFILIATE_TAG}" target="_blank">Buy Now</a>
         </div>
     """
-    # This runs the Website update
+    
+    # STEP 1: Update the Website (HTML)
     update_category_page(category, product_html)
     
-    # This runs the Pinterest update
-    if category in ["fashion", "beauty"]:
-        update_rss_feed(category, title, image)
-
-# ===================== RUN BOT =====================
-if __name__ == "__main__":
-    print("=== Elite Choice Automation Bot ===")
-    while True:
-        url = input("Enter Amazon URL (or 'exit'): ").strip()
-        if url.lower() == "exit": break
-        category = input("Enter category (fashion/beauty): ").strip().lower()
-        add_product(url, category)
-
+    # STEP 2: Update the Pinterest Feed (XML)
+    # This part was likely missing or not triggering before!
+    clean_cat = category.lower().strip()
+    if clean_cat in ["fashion", "beauty"]:
+        update_rss_feed(clean_cat, title, image)
