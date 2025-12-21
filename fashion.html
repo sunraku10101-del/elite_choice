@@ -3,172 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Choice Kerala | Premium Collection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Fashion & Couture | Elite Choice Kerala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #1a1a1a;
-            --accent-gold: #c5a059;
-            --amazon-orange: #FFD814;
-            --bg-light: #f8f9fa;
+            --accent-gold: #D4AF37;
+            --pure-black: #1a1a1a;
+            --soft-gray: #f9f9f9;
+            --white: #ffffff;
         }
 
         body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg-light); 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--white); 
             margin: 0; 
-            padding: 0; 
-            color: #333;
+            color: var(--pure-black);
         }
 
-        /* Premium Navigation */
+        /* Luxury Header */
         .header {
-            background: var(--primary-dark);
-            padding: 20px 0;
+            background: var(--white);
+            padding: 40px 0;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
-        .header h1 {
-            color: white;
-            margin: 0;
-            font-weight: 700;
+        .header h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 36px; 
+            margin: 0; 
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .nav { margin-top: 20px; }
+        .nav a { 
+            color: #999; 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-size: 11px; 
             letter-spacing: 2px;
-            font-size: 24px;
-            text-transform: uppercase;
-        }
-
-        .nav {
-            margin-top: 15px;
-        }
-
-        .nav a {
-            color: #bbb;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 14px;
+            text-transform: uppercase; 
             transition: 0.3s;
+            font-weight: 600;
+        }
+        .nav a:hover { color: var(--pure-black); }
+
+        /* Fashion Hero Section */
+        .fashion-banner {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--soft-gray);
+            margin-bottom: 60px;
+        }
+        .fashion-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-style: italic;
+            margin: 0;
+        }
+        .fashion-banner p {
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 5px;
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
         }
 
-        .nav a:hover {
-            color: var(--amazon-orange);
-        }
-
-        .category-title {
-            margin: 40px 0 20px;
-            font-weight: 300;
-            font-size: 32px;
-            color: var(--primary-dark);
-        }
-
-        /* Product Grid */
+        /* Premium Fashion Grid */
         .container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            max-width: 1200px; 
-            margin: 0 auto 50px; 
-            padding: 0 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 50px; 
+            max-width: 1400px; 
+            margin: 0 auto 100px auto; 
+            padding: 0 30px; 
         }
 
-        /* Premium Card Design */
+        /* Product Card */
         .card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #eee;
+            position: relative;
+            background: var(--white); 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-color: var(--amazon-orange);
+        .image-container {
+            overflow: hidden;
+            position: relative;
+            background: #f2f2f2;
         }
 
         .card img { 
             width: 100%; 
-            height: 280px; 
-            object-fit: contain; 
-            border-radius: 10px; 
-            margin-bottom: 15px;
+            height: 480px; 
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        
+        .card:hover img { transform: scale(1.1); }
+
+        .card-content { 
+            padding: 20px 0; 
+            text-align: left; 
         }
 
         .card h3 { 
-            font-size: 16px; 
-            line-height: 1.4;
-            height: 45px; 
-            overflow: hidden; 
-            margin: 10px 0; 
-            color: #444;
-            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; 
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0; 
         }
 
         .price { 
-            color: #B12704; 
+            font-family: 'Playfair Display', serif;
             font-size: 22px; 
             font-weight: 700; 
-            margin: 10px 0 20px; 
+            color: var(--pure-black);
         }
 
+        /* Gold underline detail on hover */
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        .card:hover::after { width: 40px; }
+
         .btn { 
-            display: block; 
-            background: var(--amazon-orange); 
-            color: #111; 
-            padding: 12px; 
+            margin-top: 15px;
+            display: inline-block; 
+            border: 1px solid var(--pure-black);
+            color: var(--pure-black); 
+            padding: 10px 30px; 
             text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: 700; 
-            font-size: 14px;
-            transition: 0.2s;
-            text-align: center;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         .btn:hover { 
-            background: #F7CA00; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: var(--pure-black); 
+            color: var(--white);
         }
 
         footer {
-            padding: 40px;
-            background: #eee;
-            margin-top: 50px;
-            font-size: 12px;
-            color: #888;
+            border-top: 1px solid #eee;
+            padding: 80px 20px;
+            text-align: center;
+            background: var(--white);
+            color: #bbb;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>Elite Choice Kerala</h1>
+        <h1>Elite Choice</h1>
         <div class="nav">
             <a href="index.html">Home</a>
-            <a href="fashion.html">Fashion</a>
+            <a href="fashion.html" style="color: var(--pure-black); border-bottom: 1px solid var(--accent-gold);">Fashion</a>
             <a href="beauty.html">Beauty</a>
         </div>
     </header>
 
-<h2 class="category-title">Our Curated Selection</h2>
+    <div class="fashion-banner">
+        <h2>The Spring Collection</h2>
+        <p>Elegance in every thread</p>
+    </div>
 
-<div class="container">
-    product here
-</div>
+    <div class="container">
+        </div>
+
     <footer>
-        &copy; 2025 Elite Choice Kerala. All products curated from Amazon India.
+        &copy; 2025 Elite Choice Kerala | Defined for Elegance
     </footer>
 
 </body>
 </html>
-
-
