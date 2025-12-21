@@ -74,7 +74,7 @@ def update_category_page(category, product_html):
         file = repo.get_contents(file_path)
         old_content = file.decoded_content.decode("utf-8")
       # CORRECTED: The marker is now ACTUALLY filled in!
-      placeholder = "marker"
+      placeholder = "<!-- PRODUCTS HERE -->"
         if placeholder in old_content:
             new_content = old_content.replace(placeholder, product_html + "\n" + placeholder)
             repo.update_file(file_path, f"Bot: Add product to {category}", new_content, file.sha)
@@ -115,3 +115,4 @@ if __name__ == "__main__":
         if url.lower() == "exit": break
         category = input("Enter category (fashion/beauty): ").strip().lower()
         add_product(url, category)
+
