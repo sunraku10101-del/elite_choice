@@ -109,3 +109,21 @@ def add_product(amazon_url, category):
     clean_cat = category.lower().strip()
     if clean_cat in ["fashion", "beauty"]:
         update_rss_feed(clean_cat, title, image)
+     # STEP 2: Update the Pinterest Feed (XML)
+    clean_cat = category.lower().strip()
+    if clean_cat in ["fashion", "beauty"]:
+        update_rss_feed(clean_cat, title, image)
+
+# ===================== RUN BOT =====================
+# This part MUST be all the way to the left (no spaces)
+if __name__ == "__main__":
+    print("=== Elite Choice Automation Bot ===")
+    while True:
+        url = input("Enter Amazon product URL (or 'exit' to quit): ").strip()
+        if url.lower() == "exit":
+            break
+        category = input("Enter category (fashion/beauty/electronics/home): ").strip().lower()
+        
+        # This line triggers both the HTML and the XML update
+        add_product(url, category)
+        print("✅ Product process complete!\n")
