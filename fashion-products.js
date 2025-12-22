@@ -7,15 +7,22 @@ const fashionProducts = [
   }
 ];
 
-const fashionContainer = document.getElementById("fashion-list");
+document.addEventListener("DOMContentLoaded", () => {
+  const fashionContainer = document.getElementById("fashion-list");
 
-fashionProducts.forEach(p => {
-  fashionContainer.innerHTML += `
-    <div class="card">
-      <img src="${p.img}" alt="${p.title}">
-      <h3>${p.title}</h3>
-      <div class="price">${p.price}</div>
-      <a class="btn" href="${p.link}" target="_blank">Buy Now</a>
-    </div>
-  `;
+  if (!fashionContainer) {
+    console.error("❌ fashion-list container not found");
+    return;
+  }
+
+  fashionProducts.forEach(p => {
+    fashionContainer.innerHTML += `
+      <div class="card">
+        <img src="${p.img}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <div class="price">${p.price}</div>
+        <a class="btn" href="${p.link}" target="_blank">Buy Now</a>
+      </div>
+    `;
+  });
 });
