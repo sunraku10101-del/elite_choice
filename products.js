@@ -9,11 +9,7 @@ const products = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("product-list");
-
-  if (!container) {
-    console.error("❌ product-list container not found");
-    return;
-  }
+  if (!container) return;
 
   products.forEach(p => {
     container.innerHTML += `
