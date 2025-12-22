@@ -1,10 +1,11 @@
 const products = [
-  {
-    img: "https://m.media-amazon.com/images/I/617LQkadkXL._SY450_.jpg",
-    title: "URBANMAC Liquid Matte Lipstick 12Pcs Set",
-    price: "₹279",
-    link: "https://www.amazon.in/dp/B0BTP1L9DD?tag=elitechoic002-21"
-  }
+    {
+  "img": "https://via.placeholder.com/300x300?text=TEST+PRODUCT",
+  "title": "TEST PRODUCT – JS RENDER CHECK",
+  "price": "₹123",
+  "link": "https://www.amazon.in/?tag=elitechoic002-21"
+},
+
 ];
 
 const container = document.getElementById("product-list");
