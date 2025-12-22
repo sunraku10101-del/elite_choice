@@ -4,6 +4,7 @@ from github import Github
 import os
 import json
 import datetime
+import re
 
 # ==================== CONFIG ====================
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
@@ -30,25 +31,61 @@ def scrape_amazon(url):
     title = title_tag.get_text(strip=True) if title_tag else "Amazon Product"
 
     # IMAGE
-    image = ""
+    image = PLACEHOLDER_IMAGE
     img_tag = soup.find("img", id="landingImage")
     if img_tag and img_tag.get("data-a-dynamic-image"):
         try:
             image = list(json.loads(img_tag["data-a-dynamic-image"]).keys())[0]
         except:
-            image = ""
-
-    if not image:
-        image = PLACEHOLDER_IMAGE
+            pass
 
     # PRICE
     price_tag = soup.select_one(".a-price-whole")
     price = price_tag.get_text(strip=True) if price_tag else "Check Price"
-    price = price.replace("₹", "").strip()
+    price = re.sub(r"[^\d]", "", price)
 
     return title, image, price
 
-# ==================== RSS UPDATE (PINTEREST) ====================
+# ==================== SAFE JS UPDATE ====================
+def update_products_js(category, product):
+    file_path = "products.js" if category == "beauty" else "fashion-products.js"
+
+    try:
+        file = repo.get_contents(file_path)
+        content = file.decoded_content.decode("utf-8")
+
+        if product["link"] in content:
+            print("⚠️ Product already exists. Skipping.")
+            return
+
+        insert_index = content.find("[")
+        if insert_index == -1:
+            print("❌ Invalid JS structure")
+            return
+
+        product_block = json.dumps(product, indent=2)
+
+        updated = (
+            content[:insert_index + 1]
+            + "\n"
+            + product_block
+            + ","
+            + content[insert_index + 1:]
+        )
+
+        repo.update_file(
+            file_path,
+            f"Bot: Add product to {category}",
+            updated,
+            file.sha
+        )
+
+        print(f"✅ Product added to {file_path}")
+
+    except Exception as e:
+        print(f"❌ JS UPDATE ERROR: {e}")
+
+# ==================== RSS UPDATE ====================
 def update_rss_feed(category, title, image_url):
     file_path = f"{category}.xml"
     now = datetime.datetime.utcnow()
@@ -70,58 +107,21 @@ def update_rss_feed(category, title, image_url):
         content = file.decoded_content.decode("utf-8")
 
         if "</channel>" not in content:
-            print("❌ RSS ERROR: </channel> missing")
             return
 
         updated = content.replace("</channel>", new_item + "\n</channel>", 1)
 
         repo.update_file(
             file_path,
-            f"Bot: Add {title} to RSS",
+            f"Bot: RSS update ({category})",
             updated,
             file.sha
         )
 
-        print(f"✅ RSS UPDATED: {file_path}")
+        print("✅ RSS updated")
 
-    except Exception as e:
-        print(f"❌ RSS ERROR: {e}")
-
-# ==================== HTML UPDATE (BULLETPROOF) ====================
-def update_category_page(category, product_html):
-    file_path = f"{category}.html"
-    anchor = "<!-- BOT_INSERT -->"
-
-    try:
-        file = repo.get_contents(file_path)
-        content = file.decoded_content.decode("utf-8")
-
-        # SAFETY CHECKS
-        if "<!DOCTYPE html>" not in content:
-            print("❌ HTML corrupted. Aborting update.")
-            return
-
-        if anchor not in content:
-            print("❌ BOT_INSERT not found. Aborting.")
-            return
-
-        if product_html in content:
-            print("⚠️ Product already exists. Skipping.")
-            return
-
-        new_content = content.replace(anchor, f"\n{product_html}\n{anchor}", 1)
-
-        repo.update_file(
-            file_path,
-            f"Bot: Add product to {category}",
-            new_content,
-            file.sha
-        )
-
-        print(f"✅ HTML UPDATED: {file_path}")
-
-    except Exception as e:
-        print(f"❌ HTML ERROR: {e}")
+    except:
+        pass
 
 # ==================== MAIN LOGIC ====================
 def add_product(amazon_url, category):
@@ -129,30 +129,30 @@ def add_product(amazon_url, category):
 
     title, image, price = scrape_amazon(clean_url)
 
-    product_html = f"""
-<div class="card">
-    <img src="{image}" alt="{title}" loading="lazy">
-    <h3>{title}</h3>
-    <div class="price">₹{price}</div>
-    <a class="btn" href="{clean_url}?tag={AFFILIATE_TAG}" target="_blank" rel="nofollow noopener">
-        🛒 Buy on Amazon
-    </a>
-    <div class="trust">✔ Verified Amazon Seller</div>
-</div>
-""".strip()
+    product_data = {
+        "img": image,
+        "title": title,
+        "price": f"₹{price}",
+        "link": f"{clean_url}?tag={AFFILIATE_TAG}"
+    }
 
-    update_category_page(category, product_html)
+    update_products_js(category, product_data)
 
-    if category.lower().strip() in ["fashion", "beauty"]:
-        update_rss_feed(category.lower().strip(), title, image)
+    if category in ["beauty", "fashion"]:
+        update_rss_feed(category, title, image)
 
 # ==================== RUN ====================
 if __name__ == "__main__":
-    print("=== Elite Choice Bot ACTIVATED (FINAL STABLE BUILD) ===")
+    print("=== Elite Choice SAFE BOT ACTIVE ===")
+
     while True:
         url = input("Amazon URL (or exit): ").strip()
         if url.lower() == "exit":
             break
 
-        cat = input("Category (beauty/fashion): ").strip().lower()
-        add_product(url, cat)
+        category = input("Category (beauty/fashion): ").strip().lower()
+        if category not in ["beauty", "fashion"]:
+            print("❌ Invalid category")
+            continue
+
+        add_product(url, category)
