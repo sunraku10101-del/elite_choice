@@ -9,11 +9,15 @@
     background: #0b0b0b;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     text-align: center;
   }
 
   h1 {
+    margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 28px;
   }
 
   #productGrid {
@@ -21,6 +25,8 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .card {
@@ -28,6 +34,7 @@
     border-radius: 10px;
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
   }
 
   .card:hover {
@@ -58,6 +65,11 @@
     border-radius: 5px;
     text-decoration: none;
     margin-top: 10px;
+    transition: background 0.3s;
+  }
+
+  .buy:hover {
+    background: #ff5f00;
   }
 </style>
 </head>
@@ -88,6 +100,18 @@ const products = [
     price: "₹199",
     image: "https://images.unsplash.com/photo-1600185362472-67d73e2f4d44",
     link: "#"
+  },
+  {
+    title: "Garnier Skin Naturals Moisturizer",
+    price: "₹299",
+    image: "https://images.unsplash.com/photo-1588776814546-5aa18f33eade",
+    link: "#"
+  },
+  {
+    title: "Himalaya Face Wash",
+    price: "₹225",
+    image: "https://images.unsplash.com/photo-1599028539920-d387fdfebf02",
+    link: "#"
   }
 ];
 
@@ -97,7 +121,7 @@ products.forEach(p => {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-    <img src="${p.image}">
+    <img src="${p.image}" alt="${p.title}">
     <h3>${p.title}</h3>
     <p>${p.price}</p>
     <a href="${p.link}" class="buy" target="_blank">Buy Now</a>
