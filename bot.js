@@ -1,3 +1,4 @@
+alert("BOT LOADED");
 const products = [
   {
     name: "Olay Total Effects Day Cream 20g",
