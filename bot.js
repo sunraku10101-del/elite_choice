@@ -4,7 +4,8 @@ const products = [
   {
     title: "Olay Total Effects Day Cream",
     price: "₹347",
-    image: "images/PRODUCT1.JPG",
+    image: "image: "https://via.placeholder.com/400x250?text=TEST+PRODUCT",
+",
     link: "https://amzn.to/4ol78oY"
   }
 ];
