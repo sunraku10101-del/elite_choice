@@ -4,18 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Top Deals For You | Elite Choice</title>
+
+  <!-- PASTE THE CSS STYLE HERE -->
   <style>
-    body { background: #0b0b0b; color: white; font-family: Arial, sans-serif; }
+    body {
+      background: #0b0b0b;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #productGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
     .card {
       background: #171717;
-      padding: 15px;
       border-radius: 10px;
-      margin: 10px;
-      text-align: center;
-      display: inline-block;
-      width: 200px;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card img { max-width: 100%; border-radius: 10px; }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #ff9900;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px 0;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
     .buy {
       display: inline-block;
       padding: 8px 15px;
@@ -27,6 +63,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Top Deals For You</h1>
 
