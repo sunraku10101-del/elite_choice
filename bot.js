@@ -1,29 +1,24 @@
-alert("BOT LOADED");
+alert("BOT CONNECTED");
 
 const products = [
   {
-    title: "Olay Total Effects Day Cream",
+    title: "Cetaphil Bright Healthy Radiance Serum",
     price: "₹347",
-    image: "image: "https://via.placeholder.com/400x250?text=TEST+PRODUCT",
-",
-    link: "https://amzn.to/4ol78oY"
+    image: "https://images.unsplash.com/photo-1585238342028-4bbcaa6f8a8b",
+    link: "#"
   }
 ];
 
 const grid = document.getElementById("productGrid");
 
-products.forEach(product => {
+products.forEach(p => {
   const card = document.createElement("div");
-  card.className = "product-card";
-
+  card.className = "card";
   card.innerHTML = `
-    <img src="${product.image}" alt="${product.title}">
-    <div class="product-title">${product.title}</div>
-    <div class="product-price">${product.price}</div>
-    <a href="${product.link}" target="_blank" class="buy-btn" style="background:#ff9900;">
-      Buy Now
-    </a>
+    <img src="${p.image}">
+    <h3>${p.title}</h3>
+    <p>${p.price}</p>
+    <a href="${p.link}" class="buy">Buy Now</a>
   `;
-
   grid.appendChild(card);
 });
