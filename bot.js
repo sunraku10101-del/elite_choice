@@ -1,24 +1,17 @@
-<script>
-alert("BOT CONNECTED");
+alert("BOT LOADED ✅");
 
 const products = [
   {
     title: "Cetaphil Bright Healthy Radiance Serum",
+    price: "₹1609",
+    image: "https://m.media-amazon.com/images/I/61dG5+NQ9xL._SL1500_.jpg",
+    link: "https://amzn.to/4ol78oY"
+  },
+  {
+    title: "Olay Total Effects Day Cream",
     price: "₹347",
-    image: "https://images.unsplash.com/photo-1585238342028-4bbcaa6f8a8b",
-    link: "#"
-  },
-  {
-    title: "L'Oreal Paris Revitalift Cream",
-    price: "₹499",
-    image: "https://images.unsplash.com/photo-1594759951986-d6d80b3d47ff",
-    link: "#"
-  },
-  {
-    title: "Nivea Face Wash",
-    price: "₹199",
-    image: "https://images.unsplash.com/photo-1600185362472-67d73e2f4d44",
-    link: "#"
+    image: "https://m.media-amazon.com/images/I/71+6JzL5KLL._SL1500_.jpg",
+    link: "https://amzn.to/4ol78oY"
   }
 ];
 
@@ -30,9 +23,10 @@ products.forEach(p => {
   card.innerHTML = `
     <img src="${p.image}">
     <h3>${p.title}</h3>
-    <p>${p.price}</p>
-    <a href="${p.link}" class="buy" target="_blank">Buy Now</a>
+    <p class="price">${p.price}</p>
+    <a href="${p.link}" target="_blank">
+      <button>Check Price on Amazon</button>
+    </a>
   `;
   grid.appendChild(card);
 });
-</script>
