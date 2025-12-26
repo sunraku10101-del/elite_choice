@@ -1,4 +1,3 @@
-alert("BOT LOADED ✅");
 
 const products = [
   {
